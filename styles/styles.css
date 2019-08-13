@@ -11,10 +11,29 @@
     border: 2px solid #000000;
 }
 
-.section-notifications {
-    width: 200px;
-    height: 400px;
-    border: 2px solid goldenrod;
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    width: 20vw;
+    margin-top: 5px;
+}
+
+.error-notification {
+    background-color: red;
+}
+
+.warning-notification {
+    background-color: orange;
+}
+
+.success-notification {
+    background-color: green;
+} 
+
+.info-notification {
+    background-color: cornflowerblue;
 }
 
 .pop-up-button {
@@ -25,13 +44,6 @@
     font-size: 1.5rem;
 }
 
-.info-notification {
-    height: 50px;
-    width: 50px;
-    background-color: blue;
-}
-
-i {
-    font-size: 16px;
-    color: black;
+.fa-times {
+    font-size: 1.5rem;
 }
