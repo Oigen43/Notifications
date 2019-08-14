@@ -18,6 +18,8 @@
     height: 7vh;
     width: 20vw;
     margin-top: 5px;
+    animation: show  1s 1 ease-in-out,
+    hide 1s 1 ease-in-out 4s;
 }
 
 .error-notification {
@@ -50,41 +52,37 @@
 
 .modal {
     position: fixed;
-    left: 0;
-    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    animation: show 1s 1 ease-in-out;
 }
+
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
-    padding: 1rem 1.5rem;
-    width: 24rem;
     border-radius: 0.5rem;
 }
-.close-button {
-    float: right;
-    width: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
+
+.js-logo {
+    opacity: 0;
+    animation: spinner 3s infinite ease-in-out 1s;
 }
-.close-button:hover {
-    background-color: darkgray;
+
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes spinner {
+    from {opacity: 0;}
+    50% {opacity: 1}
+    to {opacity: 0;}
 }

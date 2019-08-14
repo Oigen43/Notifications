@@ -1,5 +1,3 @@
-const ID = 0;
-
 function Notification() {
 }
 
@@ -12,16 +10,18 @@ Notification.prototype.showNotification = function() {
 };
 
 function ToastNotification(type, content) {
-    this.type = type;
-    this.content = content;
-    this.place = '.section-notifications';
-    this.time = 1000; // 5s
+    this.type = type,
+    this.content = content,
+    this.place = '.section-notifications',
+    this.time = 5000; // 5s
 };
 
 ToastNotification.prototype = Object.create(Notification.prototype);
 
-function ModalWindow() {
-    this.content;
+function ModalWindow(content) {
+    this.type = 'modal',
+    this.content = content,
+    this.place = '.main';
 }
 
 ModalWindow.prototype = Object.create(Notification.prototype);
@@ -61,22 +61,14 @@ infoButton.onclick = function() {
 }
 
 modalButton.onclick = function() {
-    var modal = document.createElement('div');
-    modal.className = 'modal';
-    var closeButton = document.querySelector(".close-button");
+    var modal = new ModalWindow('<div class = "modal-content"><img class = "js-logo" width = 200px height 200px src="logo.svg" alt="js-logo"></div>');
+    modal.showNotification();
 
-    document.querySelector('main').appendChild(modal);
-
-    // function toggleModal() {
-    //     modal.classList.toggle("show-modal");
-    // }
-    // toggleModal();
-    // window.onclick = function(event) {
-    //     if (event.target === modal) {
-    //         toggleModal();
-    //     }
-    // }
-    // closeButton.onclick = toggleModal;
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            removeModal();
+        }
+    }
 }
 
 var toastsSection = document.querySelector('.section-notifications');
@@ -88,4 +80,10 @@ toastsSection.onclick = function(event) {
 
 function removeToast(elem) {
     elem.remove();
+}
+
+function removeModal() {
+    var modal = document.querySelector('.modal');
+    var main = document.querySelector('.main');
+    main.removeChild(modal);
 }
