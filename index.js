@@ -7,12 +7,13 @@ Notification.prototype.showNotification = function() {
     notification.className = this.type;
     notification.innerHTML = this.content;
     notificationsList.appendChild(notification);
+    setTimeout(removeToast, this.time, notification);
 };
 
 function ToastNotification(type, content) {
     this.type = type;
     this.content = content;
-    this.time = 5;
+    this.time = 1000; // 5s
 };
 
 ToastNotification.prototype = Object.create(Notification.prototype);
@@ -44,4 +45,15 @@ infoButton.onclick = function() {
     var info = new ToastNotification('info-notification notification',
         '<i class="fas fa-info"></i><h4>Info</h4><i class="far fa-times-circle"></i>');
     info.showNotification();
+}
+
+var toastsSection = document.querySelector('.section-notifications');
+toastsSection.onclick = function(event) {
+    var target = event.target;
+    if (target.className != 'far fa-times-circle') return;
+    removeToast(target.parentNode);
+}
+
+function removeToast(elem) {
+    elem.remove();
 }
