@@ -22,6 +22,7 @@ var errorButton = document.querySelector('.error-button');
 var warningButton = document.querySelector('.warning-button');
 var successButton = document.querySelector('.success-button');
 var infoButton = document.querySelector('.info-button');
+var modalButton = document.querySelector('.modal-button');
 
 errorButton.onclick = function() {
     var error = new ToastNotification('error-notification notification',
@@ -45,6 +46,22 @@ infoButton.onclick = function() {
     var info = new ToastNotification('info-notification notification',
         '<i class="fas fa-info"></i><h4>Info</h4><i class="far fa-times-circle"></i>');
     info.showNotification();
+}
+
+modalButton.onclick = function() {
+    var modal = document.querySelector('.modal');
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+    toggleModal();
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+    closeButton.onclick = toggleModal;
 }
 
 var toastsSection = document.querySelector('.section-notifications');
