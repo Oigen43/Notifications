@@ -19,9 +19,9 @@ function ToastNotification(type, content) {
 ToastNotification.prototype = Object.create(Notification.prototype);
 
 function ModalWindow(content) {
-    this.type = 'modal',
+    this.type = 'modal-content',
     this.content = content,
-    this.place = '.main';
+    this.place = '.modal';
 }
 
 ModalWindow.prototype = Object.create(Notification.prototype);
@@ -61,11 +61,11 @@ infoButton.onclick = function() {
 }
 
 modalButton.onclick = function() {
-    var modal = new ModalWindow('<div class = "modal-content"><img class = "js-logo" width = 200px height 200px src="logo.svg" alt="js-logo"></div>');
+    var modal = new ModalWindow('<img class = "js-logo" width = 200px height 200px src="logo.svg" alt="js-logo">');
     modal.showNotification();
-
+    document.querySelector('.modal').classList.toggle('show-modal');
     window.onclick = function(event) {
-        if (event.target.className === 'modal') {
+        if (event.target.className === 'modal show-modal') {
             removeModal();
         }
     }
@@ -84,6 +84,6 @@ function removeToast(elem) {
 
 function removeModal() {
     var modal = document.querySelector('.modal');
-    var main = document.querySelector('.main');
-    main.removeChild(modal);
+    modal.classList.toggle('show-modal');
+    modal.removeChild(modal.firstChild);
 }
