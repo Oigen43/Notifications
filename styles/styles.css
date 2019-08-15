@@ -18,24 +18,32 @@
     height: 7vh;
     width: 20vw;
     margin-top: 5px;
-    animation: show  1s 1 ease-in-out,
-    hide 1s 1 ease-in-out 4s;
+    font-size: 1.5em;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+}
+
+.show-notification {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s;
 }
 
 .error-notification {
-    background-color: red;
+    background-color: #ff0000;
 }
 
 .warning-notification {
-    background-color: orange;
+    background-color: #ffa500;
 }
 
 .success-notification {
-    background-color: green;
+    background-color: #008000;
 }
 
 .info-notification {
-    background-color: cornflowerblue;
+    background-color: #6495ed;
 }
 
 .pop-up-button {
@@ -59,43 +67,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
+    background-color: #00000080;
     visibility: hidden;
+    opacity: 0;
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
 }
 
 .show-modal {
     visibility: visible;
-    transition: opacity linear 1s;
     opacity: 1;
     transition: visibility 0s linear 0s, opacity 0.25s 0s;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-}
-
-.box {
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(180, 142, 142);
-    opacity: 0;
-}
-
-.box-show {
-    visibility: visible;
-    transition: opacity linear 1s;
-    opacity: 1;
-}
-
 .modal-content {
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 0.5rem;
 }
 
@@ -104,18 +89,8 @@ body {
     animation: spinner 2s infinite ease-in-out;
 }
 
-@keyframes show {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes hide {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
-
 @keyframes spinner {
     from {opacity: 0;}
-    50% {opacity: 1}
+    50% {opacity: 1;}
     to {opacity: 0;}
 }
