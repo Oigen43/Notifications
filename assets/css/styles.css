@@ -1,0 +1,144 @@
+@media (max-width: 700px) {
+    .section-notifications {
+        position: fixed;
+        left: calc(50vw - 69px);
+        top: 5px;
+    }
+    .modal-content {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 100%;
+    border: 2px solid #000000;
+}
+
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 20vw;
+    min-width: 134px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 2px solid black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: bold;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+}
+
+.notification-content {
+    display: flex;
+    justify-content: space-between;
+    width: 18vw;
+    min-width: 130px;
+}
+
+.show-notification {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s;
+}
+
+.error-notification {
+    background-color: #ff0000;
+}
+
+.warning-notification {
+    background-color: #ffa500;
+}
+
+.success-notification {
+    background-color: #008000;
+}
+
+.info-notification {
+    background-color: #6495ed;
+}
+
+.pop-up-button {
+    height: 50px;
+    color: #ffffff;
+    background-color: #ff6347;
+    border: 2px solid black;
+    font-size: 1.5rem;
+}
+
+.pop-up-button:hover {
+    color: #ff6347;
+    background-color: #ffffff;
+}
+
+.fa-times-circle:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 100%;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+}
+
+.show-modal {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s;
+}
+
+.modal-content {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-close-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.js-logo {
+    width : 80%;
+    height : 80%;
+    opacity: 0;
+    animation: spinner 2s infinite ease-in-out;
+}
+
+@keyframes spinner {
+    from {opacity: 0;}
+    50% {opacity: 1;}
+    to {opacity: 0;}
+}
