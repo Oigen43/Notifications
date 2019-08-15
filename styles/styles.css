@@ -1,3 +1,15 @@
+@media (max-width: 700px) {
+    .section-notifications {
+        position: fixed;
+        left: calc(50vw - 69px);
+        top: 5px;
+    }
+    .modal-content {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
 .main {
     display: flex;
     justify-content: space-between;
@@ -13,15 +25,27 @@
 
 .notification {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 7vh;
     width: 20vw;
+    min-width: 134px;
     margin-top: 5px;
-    font-size: 1.5em;
+    margin-right: 5px;
+    border: 2px solid black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: bold;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s;
+}
+
+.notification-content {
+    display: flex;
+    justify-content: space-between;
+    width: 18vw;
+    min-width: 130px;
 }
 
 .show-notification {
@@ -48,14 +72,21 @@
 
 .pop-up-button {
     height: 50px;
-    width: 100%;
     color: #ffffff;
     background-color: #ff6347;
+    border: 2px solid black;
     font-size: 1.5rem;
 }
 
-.fa-times {
-    font-size: 1.5rem;
+.pop-up-button:hover {
+    color: #ff6347;
+    background-color: #ffffff;
+}
+
+.fa-times-circle:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 100%;
 }
 
 .modal {
@@ -80,11 +111,28 @@
 }
 
 .modal-content {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     border-radius: 0.5rem;
 }
 
+.modal-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-close-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
 .js-logo {
+    width : 80%;
+    height : 80%;
     opacity: 0;
     animation: spinner 2s infinite ease-in-out;
 }
