@@ -2,15 +2,20 @@
 
     // constants
 
-    var TOAST_ERROR_TYPE = 'error-notification notification';
-    var TOAST_WARNING_TYPE = 'warning-notification notification';
-    var TOAST_SUCCESS_TYPE = 'success-notification notification';
-    var TOAST_INFO_TYPE = 'info-notification notification';
+    var TOAST_TYPE = {
+        ERROR: 'error-notification notification',
+        WARNING: 'warning-notification notification',
+        SUCCESS: 'success-notification notification',
+        INFO: 'info-notification notification'
+    };
 
-    var TOAST_ERROR_CONTENT = '<div class="notification-content"><i class="fas fa-times"></i><h4>Error</h4><i class="far fa-times-circle"></i></div>';
-    var TOAST_WARNING_CONTENT = '<div class="notification-content"><i class="fas fa-exclamation-triangle"></i><h4>Warning</h4><i class="far fa-times-circle"></i></div>';
-    var TOAST_SUCCESS_CONTENT = '<div class="notification-content"><i class="fas fa-check"></i><h4>Success</h4><i class="far fa-times-circle"></i></div>';
-    var TOAST_INFO_CONTENT = '<div class="notification-content"><i class="fas fa-info"></i><h4>Info</h4><i class="far fa-times-circle"></i></div>';
+    var TOAST_CONTENT = {
+        ERROR: '<div class="notification-content"><i class="fas fa-times"></i><div class = "notification-info"><h4>Error</h4><p>Something is wrong</p></div><i class="far fa-times-circle"></i></div>',
+        WARNING: '<div class="notification-content"><i class="fas fa-exclamation-triangle"></i><div class = "notification-info"><h4>Warning</h4><p>Something is not ordinary</p></div><i class="far fa-times-circle"></i></div>',
+        SUCCESS: '<div class="notification-content"><i class="fas fa-check"></i><div class = "notification-info"><h4>Success</h4><p>Everything is fine</p></div><i class="far fa-times-circle"></i></div>',
+        INFO: '<div class="notification-content"><i class="fas fa-info"></i><div class = "notification-info"><h4>Info</h4><p>Additional information</p></div><i class="far fa-times-circle"></i></div>'
+    }
+
     var MODAL_CONTENT = '<img class="js-logo" src="assets/logo.svg" alt="js-logo"><i class="far fa-times-circle modal-close-button"></i>';
 
     var TOAST_CLOSE_BUTTON_NAME = 'far fa-times-circle';
@@ -36,7 +41,7 @@
     // event handlers
 
     errorButton.onclick = function() {
-        var error = new ToastNotification(TOAST_ERROR_TYPE, TOAST_ERROR_CONTENT);
+        var error = new ToastNotification(TOAST_TYPE.ERROR, TOAST_CONTENT.ERROR);
         error.showNotification();
         var currentErrorToast = document.querySelector(error.place).lastChild;
         setTimeout(toggleToast, TOAST_ANIMATION_DELAY, currentErrorToast);  // animation
@@ -44,7 +49,7 @@
     }
 
     warningButton.onclick = function() {
-        var warning = new ToastNotification(TOAST_WARNING_TYPE, TOAST_WARNING_CONTENT);
+        var warning = new ToastNotification(TOAST_TYPE.WARNING, TOAST_CONTENT.WARNING);
         warning.showNotification();
         var currentWarningToast = document.querySelector(warning.place).lastChild;
         setTimeout(toggleToast, TOAST_ANIMATION_DELAY, currentWarningToast);  // animation
@@ -52,7 +57,7 @@
     }
 
     successButton.onclick = function() {
-        var success = new ToastNotification(TOAST_SUCCESS_TYPE, TOAST_SUCCESS_CONTENT);
+        var success = new ToastNotification(TOAST_TYPE.SUCCESS, TOAST_CONTENT.SUCCESS);
         success.showNotification();
         var currentSuccessToast = document.querySelector(success.place).lastChild;
         setTimeout(toggleToast, TOAST_ANIMATION_DELAY, currentSuccessToast);  // animation
@@ -60,7 +65,7 @@
     }
 
     infoButton.onclick = function() {
-        var info = new ToastNotification(TOAST_INFO_TYPE, TOAST_INFO_CONTENT);
+        var info = new ToastNotification(TOAST_TYPE.INFO, TOAST_CONTENT.INFO);
         info.showNotification();
         var currentInfoToast = document.querySelector(info.place).lastChild;
         setTimeout(toggleToast, TOAST_ANIMATION_DELAY, currentInfoToast);  // animation

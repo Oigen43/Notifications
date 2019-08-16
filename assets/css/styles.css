@@ -1,9 +1,9 @@
 @media (max-width: 700px) {
     .section-notifications {
         position: fixed;
-        left: calc(50vw - 69px);
-        top: 5px;
+        left: calc(50% - 4.5em);
     }
+
     .modal-content {
         width: 100vw;
         height: 100vh;
@@ -18,9 +18,9 @@
 .section-buttons {
     display: flex;
     flex-direction: column;
-    width: 150px;
+    min-width: 10em;
     height: 100%;
-    border: 2px solid #000000;
+    border: 0.1em solid #000000;
 }
 
 .notification {
@@ -29,10 +29,9 @@
     align-items: center;
     height: 7vh;
     width: 20vw;
-    min-width: 134px;
-    margin-top: 5px;
-    margin-right: 5px;
-    border: 2px solid black;
+    min-width: 9em;
+    margin-top: 0.3em;
+    border: 0.1em solid black;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1em;
     font-weight: bold;
@@ -44,8 +43,22 @@
 .notification-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 18vw;
     min-width: 130px;
+}
+
+.notification-content p {
+    font-size: 0.7em;
+    font-weight: normal;
+    text-align: center;
+}
+
+.notification-info {
+    display: flex;
+    width: 7em;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .show-notification {
