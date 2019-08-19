@@ -1,23 +1,20 @@
 var App = (function() {
 
     Utils.getButtonNodeDomBySelector('error').onclick = function() {
-        ToastNotification.create(Consts.getToastInner('error'), Consts.getToastTypeClassName('error'));
+        ToastNotification.create('error', 'your message');
     }
 
     Utils.getButtonNodeDomBySelector('warning').onclick = function() {
-        ToastNotification.create(Consts.getToastInner('warning'), Consts.getToastTypeClassName('warning'));
-    }
+        ToastNotification.create('warning');    }
 
     Utils.getButtonNodeDomBySelector('success').onclick = function() {
-        ToastNotification.create(Consts.getToastInner('success'), Consts.getToastTypeClassName('success'));
-    }
+        ToastNotification.create('success');    }
     
     Utils.getButtonNodeDomBySelector('info').onclick = function() {
-        ToastNotification.create(Consts.getToastInner('info'), Consts.getToastTypeClassName('info'));
-    }
+        ToastNotification.create('info');    }
 
     Utils.getButtonNodeDomBySelector('modal').onclick = function() {
-        ModalWindow.create(Consts.get('modalInner'));
+        ModalWindow.create('<img class="js-logo" src="src/assets/logo.svg" alt="js-logo"><i class="far fa-times-circle modal-close-button"></i>');
         window.onclick = function(event) {
             ModalWindow.verificateClosing(event.target);
         }

@@ -4,7 +4,7 @@
         left: calc(50% - 4.5em);
     }
 
-    .modal-content {
+    .modal {
         width: 100vw;
         height: 100vh;
     }
@@ -43,9 +43,10 @@
 
 .notification-info {
     display: flex;
+    flex-direction: column;
     width: 7em;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .show-notification {
