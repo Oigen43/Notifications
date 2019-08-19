@@ -2,7 +2,7 @@ var ToastNotification = (function() {
     function ToastNotification() {
         Notification.getNotificationClass().apply(this, arguments);
         this.parentContainerSelector = '.section-notifications',
-        this.duration = 500000
+        this.duration = 5000
     };
     
     ToastNotification.prototype = Object.create(Notification.getNotificationPrototype());

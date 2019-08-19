@@ -5,13 +5,16 @@ var App = (function() {
     }
 
     Utils.getButtonNodeDomBySelector('warning').onclick = function() {
-        ToastNotification.create('warning');    }
+        ToastNotification.create('warning');    
+    }
 
     Utils.getButtonNodeDomBySelector('success').onclick = function() {
-        ToastNotification.create('success');    }
+        ToastNotification.create('success');    
+    }
     
     Utils.getButtonNodeDomBySelector('info').onclick = function() {
-        ToastNotification.create('info');    }
+        ToastNotification.create('info');    
+    }
 
     Utils.getButtonNodeDomBySelector('modal').onclick = function() {
         ModalWindow.create('<img class="js-logo" src="src/assets/logo.svg" alt="js-logo"><i class="far fa-times-circle modal-close-button"></i>');
