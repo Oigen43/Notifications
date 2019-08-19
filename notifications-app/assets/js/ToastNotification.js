@@ -1,40 +1,41 @@
 var ToastNotification = (function() {
     function ToastNotification() {
         Notification.getNotificationClass().apply(this, arguments);
-        this.place = '.section-notifications'
+        this.parentContainerSelector = '.section-notifications',
+        this.duration = 5000
     };
     
     ToastNotification.prototype = Object.create(Notification.getNotificationPrototype());
   
     function _removeToast(toast) {
       _toggleToast(toast);
-      setTimeout(function(){ toast.remove() }, Consts.get('TOAST_ANIMATION_DELAY'));
+      setTimeout(function(){ toast.remove() }, Consts.get('toastAnimationDelay'));
   }
 
     function _toggleToast(toast) {
-        toast.classList.toggle(Consts.get('TOAST_SECOND_STATE'));
+        toast.classList.toggle(Consts.get('toastStartingAnimationClassName'));
     }
 
-    function _checkClosing(target) {
-        if (target.className === Consts.get('TOAST_CLOSE_BUTTON_NAME')) {
+    function _verificateClosing(target) {
+        if (target.className === Consts.get('toastCloseButtonClassName')) {
             _removeToast(target.parentNode.parentNode);
         }
     }
 
-    function _create(toastType, toastContent) {
-        var toast = new ToastNotification(toastType, toastContent);
+    function _create(toastInner, toastClassName) {
+        var toast = new ToastNotification(toastInner, toastClassName);
         toast.showNotification();
-        var currentToast = document.querySelector(toast.place).lastChild;
-        setTimeout(_toggleToast, Consts.get('TOAST_ANIMATION_DELAY'), currentToast);
-        setTimeout(_removeToast, Consts.get('TOAST_TIMER'), currentToast);
+        var currentToast = document.querySelector(toast.parentContainerSelector).lastChild;
+        setTimeout(_toggleToast, Consts.get('toastAnimationDelay'), currentToast);
+        setTimeout(_removeToast, toast.duration, currentToast);
     }
 
     return {
-      createToast: function (toastType, toastContent) {
-        _create(toastType, toastContent);
+      create: function (toastInner, toastClassName) {
+        _create(toastInner, toastClassName);
       },
-      checkClosing: function(target) {
-        _checkClosing(target);
-      },
+      verificateClosing: function(target) {
+        _verificateClosing(target);
+      }
     };
 })();

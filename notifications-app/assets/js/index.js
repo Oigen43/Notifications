@@ -1,29 +1,29 @@
 var App = (function() {
 
-    Selectors.get('ERROR_BUTTON').onclick = function() {
-        ToastNotification.createToast(Consts.get('TOAST_ERROR_CONTENT'), Consts.get('TOAST_ERROR_TYPE'));
+    Utils.getButtonNodeDomBySelector('error').onclick = function() {
+        ToastNotification.create(Consts.getToastInner('error'), Consts.getToastTypeClassName('error'));
     }
 
-    Selectors.get('WARNING_BUTTON').onclick = function() {
-        ToastNotification.createToast(Consts.get('TOAST_WARNING_CONTENT'), Consts.get('TOAST_WARNING_TYPE'));
+    Utils.getButtonNodeDomBySelector('warning').onclick = function() {
+        ToastNotification.create(Consts.getToastInner('warning'), Consts.getToastTypeClassName('warning'));
     }
 
-    Selectors.get('SUCCES_BUTTON').onclick = function() {
-        ToastNotification.createToast(Consts.get('TOAST_SUCCESS_CONTENT'), Consts.get('TOAST_SUCCESS_TYPE'),);
+    Utils.getButtonNodeDomBySelector('success').onclick = function() {
+        ToastNotification.create(Consts.getToastInner('success'), Consts.getToastTypeClassName('success'));
     }
     
-    Selectors.get('INFO_BUTTON').onclick = function() {
-        ToastNotification.createToast(Consts.get('TOAST_INFO_CONTENT'), Consts.get('TOAST_INFO_TYPE'));
+    Utils.getButtonNodeDomBySelector('info').onclick = function() {
+        ToastNotification.create(Consts.getToastInner('info'), Consts.getToastTypeClassName('info'));
     }
 
-    Selectors.get('MODAL_BUTTON').onclick = function() {
-        ModalWindow.createModal(Consts.get('MODAL_CONTENT'));
+    Utils.getButtonNodeDomBySelector('modal').onclick = function() {
+        ModalWindow.create(Consts.get('modalInner'));
         window.onclick = function(event) {
-            ModalWindow.checkClosing(event.target);
+            ModalWindow.verificateClosing(event.target);
         }
     }
 
-    Selectors.get('TOASTS_SECTION').onclick = function(event) {
-        ToastNotification.checkClosing(event.target);
+    Utils.getNodeDomBySelector('toastsSectionClassName').onclick = function(event) {
+        ToastNotification.verificateClosing(event.target);
     }
 })();

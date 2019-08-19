@@ -1,41 +1,41 @@
 var ModalWindow = (function() {
     function ModalWindow() {
         Notification.getNotificationClass().apply(this, arguments);
-        this.type = 'modal-content',
-        this.place = '.modal';
+        this.className = 'modal',
+        this.parentContainerSelector = '.modal-wrapper';
     }
     
     ModalWindow.prototype = Object.create(Notification.getNotificationPrototype());
 
-    var _modal = document.querySelector('.modal');
+    var _modalWrapper = document.querySelector('.modal-wrapper');
 
     function _removeModal() {
         _toggleModal();
-        _modal.removeChild(_modal.firstChild);
+        _modalWrapper.removeChild(_modalWrapper.firstChild);
     }
 
     function _toggleModal() {
-        _modal.classList.toggle(Consts.get('MODAL_SECOND_STATE'));
+        _modalWrapper.classList.toggle(Consts.get('modalStartingAnimationClassName'));
     }
 
-    function _checkClosing(target) {
-        if (target.className === Consts.get('MODAL_SECOND_STATE_NAME') || target.className === Consts.get('MODAL_CLOSE_BUTTON_NAME')) {
+    function _verificateClosing(target) {
+        if (target.className === Consts.get('openedModalBackgroundClassName') || target.className === Consts.get('modalCloseButtonClassName')) {
             _removeModal();
         }
     }
     
-    function _create(modalContent) {
-        var modal = new ModalWindow(modalContent);
+    function _create(modalInner) {
+        var modal = new ModalWindow(modalInner);
         modal.showNotification();
         _toggleModal();
     }
 
     return {
-      createModal: function (modalContent) {
-          _create(modalContent);
+        create: function (modalInner) {
+          _create(modalInner);
       },
-      checkClosing: function(target) {
-          _checkClosing(target);
+        verificateClosing: function(target) {
+          _verificateClosing(target);
       }
     }
 })();

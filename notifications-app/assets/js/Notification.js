@@ -1,15 +1,15 @@
 var Notification = (function() {
-    function Notification(content, type, place) {
-        this.content = content,
-        this.type = type,
-        this.place = place
+    function Notification(inner, className, parentContainerSelector) {
+        this.inner = inner,
+        this.className = className,
+        this.parentContainerSelector = parentContainerSelector
     }
     
     Notification.prototype.showNotification = function() {
-        var place = document.querySelector(this.place);
+        var place = document.querySelector(this.parentContainerSelector);
         var notification = document.createElement('div');
-        notification.className = this.type;
-        notification.innerHTML = this.content;
+        notification.className = this.className;
+        notification.innerHTML = this.inner;
         place.appendChild(notification);
     };
     
