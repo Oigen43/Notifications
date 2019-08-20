@@ -15,11 +15,11 @@ var ModalWindow = (function() {
     }
 
     function _toggleModal() {
-        _modalWrapper.classList.toggle(Consts.get('modalStartingAnimationClassName'));
+        _modalWrapper.classList.toggle(Consts.getPrivate('modalStartingAnimationClassName'));
     }
 
     function _verificateClosing(target) {
-        if (target.className === Consts.get('openedModalBackgroundClassName') || target.className === Consts.get('modalCloseButtonClassName')) {
+        if (target.className === Consts.getPrivate('openedModalBackgroundClassName') || target.className === Consts.getPrivate('modalCloseButtonClassName')) {
             _removeModal();
         }
     }

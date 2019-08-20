@@ -13,7 +13,7 @@ var Notification = (function() {
         place.appendChild(notification);
     };
     
-    function _importApp(src) {
+    function _init(src) {
         var script = document.createElement('script');
         script.src = src;
         document.getElementsByTagName('head')[0].appendChild(script);
@@ -26,10 +26,10 @@ var Notification = (function() {
         getNotificationPrototype: function() {
             return Notification.prototype;
         },
-        importApp: function() {
-            _importApp('src/notifications-app/js/consts.js');
-            _importApp('src/notifications-app/js/toastNotification.js');
-            _importApp('src/notifications-app/js/modalWindow.js');
+        init: function() {
+            _init('src/notifications-app/consts.js');
+            _init('src/notifications-app/toastNotification.js');
+            _init('src/notifications-app/modalWindow.js');
         }
     }
 })();
