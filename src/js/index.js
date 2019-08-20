@@ -1,5 +1,7 @@
 var App = (function() {
 
+    Notification.importApp();
+
     Utils.getButtonNodeDomBySelector('error').onclick = function() {
         ToastNotification.create('error', 'your message');
     }

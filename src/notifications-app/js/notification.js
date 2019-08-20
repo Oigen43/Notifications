@@ -13,12 +13,23 @@ var Notification = (function() {
         place.appendChild(notification);
     };
     
+    function _importApp(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
     return {
         getNotificationClass: function() {
             return Notification;
         },
         getNotificationPrototype: function() {
             return Notification.prototype;
+        },
+        importApp: function() {
+            _importApp('src/notifications-app/js/consts.js');
+            _importApp('src/notifications-app/js/toastNotification.js');
+            _importApp('src/notifications-app/js/modalWindow.js');
         }
     }
 })();
